@@ -1,0 +1,35 @@
+# git
+alias gitdot='git --git-dir=$DOTFILES --work-tree=$HOME' alias gits="git status"
+alias gita="git add"
+alias gitp="git push"
+alias gitec="git commit -m 'No Commit Message'"
+
+# cpp
+alias cppr="g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -std=c++17 -Werror -o output"
+alias cbd="g++ -c src/*.cpp -m64 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -std=c++17 -Werror -g -I include && g++ *.o -o bin/debug/main -lSDL2main -lSDL2 -lSDL2_image && ./bin/debug/main"
+alias cbr="g++ -c src/*.cpp -m64 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -std=c++17 -Werror -O3 -I include && g++ *.o -o bin/release/main -s -lSDL2main -lSDL2 -lSDL2_image && ./bin/release/main"
+
+# youtube-dl
+# Download formatted playlist
+alias ytp="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --yes-playlist -o '%(playlist_index)s-%(title)s.%(ext)s'"
+# Download audio only
+alias yta="yt-dlp -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
+# Music Video
+alias ytmv="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '$MEDIA/Music Videos/%(title)s.%(ext)s'"
+# Download video
+alias ytv="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(title)s.%(ext)s'"
+# Download courses
+alias ytc="yt-dlp --cookies cookies.txt -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(playlist_title)s\%(chapter)s\%(playlist_index)s - %(title)s.%(ext)s' --sleep-interval 10"
+
+# Other
+alias yt="ytfzf -t"
+alias tw="rainbowstream"
+alias pip="python3 -m pip"
+
+# ssh
+alias sshstart="eval $(ssh-agent); ssh-add $HOME/.ssh/id_rsa_git{lab,hub}"
+
+# ubuntu
+alias uu="sudo apt update -y && sudo apt upgrade -y"
+
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
