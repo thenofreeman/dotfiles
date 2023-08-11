@@ -3,6 +3,7 @@
 	name = nolan freeman abbott
 [core]
 	excludesfile = /home/nolanfreeman/.gitignore-global
+	editor = emacs
 [init]
 	defaultBranch = master
 [filter "lfs"]
@@ -12,3 +13,9 @@
 	required = true
 [gitlab]
 	user = glpat-3nNU2iCbVsKFxU6oRfbh
+[alias]
+	adog = log --all --decorate --oneline --graph
+	last = log -l HEAD
+	unstage = reset HEAD --
+[pull]
+	rebase = true

@@ -5,7 +5,7 @@
 
 (setq doom-theme 'doom-one)
 
-(setq org-directory "~/Documents/new/Notes/")
+(setq org-directory "~/Documents/Notes/")
 
 (setq display-line-numbers-type 'relative)
 
@@ -76,7 +76,7 @@
 ;;
 (after! org
 
-        (setq org-agenda-files '("~/new/Agenda/"))
+        (setq org-agenda-files '("~/Documents/Personal/Agenda/"))
 
         ;; -- Supply multiple items from wildcards
         ;; -- doesn't dynamically check for new ones unless doom/sync
@@ -124,3 +124,8 @@
 
 (setq browse-url-browser-function '(("https:\\/\\/www\\.youtube." . browse-url-mpv)
     ("." . browse-url)))
+
+
+(add-hook 'c++-mode-hook
+          (lambda () (setq flycheck-clang-include-path
+                           (list (expand-file-name "/usr/local/include/c++/11/")))))
