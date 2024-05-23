@@ -1,0 +1,70 @@
+---
+User: ''
+FormatStyle: file
+# HeaderFileExtensions: ['', 'h', 'hpp', 'hxx']
+# ImplementationFileExtensions: ['cpp', 'cxx']
+InheritParentConfig: true
+UseColor: true
+WarningsAsErrors: true
+HeaderFilterRegex: 'src/|include/'
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  concurrency-mt-unsafe,
+  cppcoreguidelines-*,
+  fuchsia-*,
+  google-*,
+  hicpp-*
+  llvm-include-order,
+  misc-*
+  -misc-const-correctness
+  -misc-coroutine-hostile-raii
+  -misc-no-recursion
+  modernize-*,
+  -modernize-use-trailing-return-type
+  performance-*,
+  portability-*,
+  readability-*,
+CheckOptions:
+  - key: bugprone-misplaced-widening-cast.CheckImplicitCasts
+    value: false
+  - key: bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression
+    value: true
+  - key: bugprone-suspicious-string-compare.WarnOnLogicalNotComparison
+    value: true
+  - key: cppcoreguidelines-narrowing-conversions.WarnWithinTemplateInstantiation
+    value: true
+  - key: cppcoreguidelines-narrowing-conversions.PedanticMode
+    value: true
+  - key: cppcoreguidelines-pro-type-member-init.IgnoreArrays
+    value: true
+  - key: hicpp-multiway-paths-covered.WarnOnMissingElse
+    value: true
+  - key: hicpp-signed-bitwise.IgnorePositiveIntegerLiterals
+    value: true
+  - key: misc-const-correctness.WarnPointersAsValues
+    value: true
+  - key: misc-const-correctness.TransformPointersAsValues
+    value: true
+  - key: readability-braces-around-statements.ShortStatementLines
+    value: 10
+  - key: readability-function-cognitive-complexity.Threshold
+    value: 15
+  - key: readability-function-size.LineThreshold
+    value: 24
+  - key: readability-function-size.BranchThreshold
+    value: 1000 # insignificant value
+  - key: readability-function-size.ParameterThreshold
+    value: 4
+  - key: readability-function-size.NestingThreshold
+    value: 3
+  - key: readability-function-size.variableThreshold
+    value: 20 # guessed value
+  # readability-identifier-naming.options.......
+  - key: readability-implicit-bool-conversion.AllowPointerConditions
+    value: true
+  - key: readability-magic-numbers.IgnoredFloatingPointValues
+    value: '1.0, 100.0, 0.5'
+  - key: readability-magic-numbers.IgnoreTypeAliases
+    value: true
