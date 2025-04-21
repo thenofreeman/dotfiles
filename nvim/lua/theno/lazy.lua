@@ -48,6 +48,19 @@ require("lazy").setup({
 		end,
 	},
 
+	{
+		"projekt0n/github-nvim-theme",
+		name = "github-theme",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
+		config = function()
+			require("github-theme").setup({
+				-- ...
+			})
+			-- vim.cmd("colorscheme github_dark")
+		end,
+	},
+
 	-- display pending keybinds on keypresses
 	{
 		"folke/which-key.nvim",
@@ -155,7 +168,21 @@ require("lazy").setup({
 
 		config = function()
 			-- :help telescope.setup()
+			local actions = require("telescope.actions")
+
 			require("telescope").setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<CR>"] = actions.select_default,
+							["<C-y>"] = actions.select_default,
+						},
+
+						n = {
+							["<CR>"] = actions.select_default,
+						},
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
@@ -176,7 +203,7 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search select telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current word" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by grep" })
-			vim.keymap.set("n", "<leader>s!", builtin.diagnostics, { desc = "Search Diagnostics" })
+			vim.keymap.set("n", "<leader>se", builtin.diagnostics, { desc = "Search Diagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search resume" })
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
 			vim.keymap.set("n", "<leader>bf", builtin.buffers, { desc = "Find existing buffers" })
@@ -450,8 +477,17 @@ require("lazy").setup({
 							completion = {
 								callSnippet = "Replace",
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							diagnostics = {
+								globals = { "vim", "love" },
+								disable = { "missing-fields" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+								checkThirdPart = false,
+								["${3rd}/love2d/library"] = true,
+							},
+							runtime = { version = "LuaJIT" },
+							telemetry = { enable = false },
 						},
 					},
 				},
