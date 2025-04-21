@@ -4,4 +4,8 @@ window-theme = ghostty
 gtk-titlebar = false
 gtk-tabs-location = hidden
 
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
+
 # background-opacity = 0.95
