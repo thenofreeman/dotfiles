@@ -1,0 +1,21 @@
+# other
+alias lisp="sbcl"
+
+# python
+alias python="python3"
+alias pip="python3 -m pip"
+
+# ubuntu
+alias uu="sudo apt update -y && sudo apt upgrade -y"
+alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+
+# git
+alias gitdot='git --git-dir=$DOTFILES --work-tree=$HOME' 
+alias gits="git status"
+alias gita="git add"
+
+# youtube-dl
+alias ytp="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --yes-playlist -o '%(playlist_index)s-%(title)s.%(ext)s'"
+alias yta="yt-dlp -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
+alias ytv="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(title)s.%(ext)s'"
+

@@ -1,0 +1,21 @@
+[user]
+	email = nolan@freemanabbott.com
+	name = nolan freeman abbott
+[core]
+	excludesfile = $HOME/.config/git/gitignore
+	editor = nvim
+[init]
+	defaultbranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	adog = log --all --decorate --oneline --graph
+	last = log -l HEAD
+	unstage = reset HEAD --
+	pdog = log --parents --decorate --oneline --graph
+	apdog = log --all --parents --decorate --oneline --graph
+[pull]
+	rebase = true

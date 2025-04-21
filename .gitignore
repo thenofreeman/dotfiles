@@ -1,0 +1,6 @@
+
+zsh/.zcompdump*
+zsh/oh-my-zsh/
+zsh/.zsh_history
+
+tmux/plugins

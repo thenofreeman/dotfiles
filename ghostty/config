@@ -1,0 +1,7 @@
+# theme = OneHalfDark
+theme = catppuccin-mocha
+window-theme = ghostty
+gtk-titlebar = false
+gtk-tabs-location = hidden
+
+# background-opacity = 0.95
