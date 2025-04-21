@@ -4,3 +4,56 @@ zsh/oh-my-zsh/
 zsh/.zsh_history
 
 tmux/plugins
+
+
+
+# Temporary Sanity Ingores
+# Some of these shouldn't be ignored, but need to be properly looked at
+.gsd-keyboard.settings-ported
+Code/
+Cursor/
+GNOME-xdg-terminals.list
+JetBrains/
+Proton Mail/
+Proton Pass/
+Windsurf/
+appimagelauncher.cfg
+autostart/
+calibre/
+config-old/
+dconf/
+discord/
+emacs/
+enchant/
+evolution/
+ghc/
+github-copilot/
+gnome-initial-setup-done
+gtk-3.0/
+htop/
+ibus/
+input-remapper-2/
+lambda-term-inputrc
+libreoffice/
+mimeapps.list
+monitors.xml
+monitors.xml~
+neovide
+newfile
+nvim/after/
+pulse/
+qBittorrent/
+racket/
+solaar/
+superfile/
+swi-prolog/
+systemd/
+ticktick/
+tiling-assistant/
+ubuntu-xdg-terminals.list
+ulauncher/
+user-dirs.dirs
+user-dirs.locale
+vlc/
+vscode-sqltools/
+xdg-terminals.list
