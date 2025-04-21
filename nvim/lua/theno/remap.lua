@@ -11,5 +11,7 @@ vim.keymap.set("n", "<C-k>", vim.diagnostic.open_float, {
 	desc = "Show line diagnostics",
 })
 
+vim.keymap.set("i", "<C-;>", "<C-k>")
+
 -- local wk = require("which-key")
 -- wk.add({})
