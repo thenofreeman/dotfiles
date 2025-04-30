@@ -26,7 +26,7 @@ require("lazy").setup({
 	-- :help gitsigns
 	{
 		"lewis6991/gitsigns.nvim",
-		opt = {
+		opts = {
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
@@ -120,6 +120,7 @@ require("lazy").setup({
 				{ "<leader>q!", ":q!<cr>", desc = "Force Quit" },
 
 				{ "<leader>w", proxy = "<c-w>", group = "window" },
+				{ "<leader>wd", ":close<cr>", desc = "Close window" },
 
 				{ "<leader>cc", proxy = "gc", group = "comment (line)" },
 				{ "<leader>cb", proxy = "gb", group = "comment (block)" },
@@ -203,7 +204,7 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search select telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current word" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by grep" })
-			vim.keymap.set("n", "<leader>se", builtin.diagnostics, { desc = "Search Diagnostics" })
+			vim.keymap.set("n", "<leader>s<c-k>", builtin.diagnostics, { desc = "Search Diagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search resume" })
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
 			vim.keymap.set("n", "<leader>bf", builtin.buffers, { desc = "Find existing buffers" })
@@ -491,6 +492,8 @@ require("lazy").setup({
 						},
 					},
 				},
+				jdtls = {},
+				zls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -509,6 +512,8 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"jdtls", -- Add this line for the Java Language Server
+				"zls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -819,6 +824,16 @@ require("lazy").setup({
 				icons = false,
 			})
 		end,
+	},
+
+	-- syntax highlighting for mips code
+	{ "benknoble/vim-mips", ft = { "mips", "asm" } },
+
+	-- syntax highlighting for mdx files
+	{
+		"davidmh/mdx.nvim",
+		config = true,
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 
 	-- ..

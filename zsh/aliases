@@ -19,3 +19,5 @@ alias ytp="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' 
 alias yta="yt-dlp -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
 alias ytv="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(title)s.%(ext)s'"
 
+# mips
+alias mips="java -jar ~/Applications/Mars4_5.jar"
