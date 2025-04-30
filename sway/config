@@ -192,15 +192,24 @@ bar swaybar_command waybar
 
 # Pulse Audio controls
 # Uses wpctl (WirePlumber Control) for PipeWire systems (default on modern Ubuntu)
-bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+# bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+# bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+# bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+# bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
+# bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+# Volume keys - now call the OSD script
+bindsym XF86AudioRaiseVolume exec ~/scripts/sway_volume_osd.sh up
+bindsym XF86AudioLowerVolume exec ~/scripts/sway_volume_osd.sh down
+bindsym XF86AudioMute exec ~/scripts/sway_volume_osd.sh mute
+
+# Brightness keys - now call the OSD script
+bindsym XF86MonBrightnessUp exec ~/scripts/sway_brightness_osd.sh up
+bindsym XF86MonBrightnessDown exec ~/scripts/sway_brightness_osd.sh down
 
 
 # --- Input Configuration ---
@@ -231,6 +240,9 @@ input type:touchpad {
 }
 
 bindsym $mod+d exec wofi --show drun
+
+# toggle waybar style
+bindsym $mod+Shift+S exec ~/scripts/waybar_toggle.sh
 
 default_border none 
 
