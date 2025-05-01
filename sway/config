@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -190,26 +186,16 @@ bindsym $mod+r mode "resize"
 
 bar swaybar_command waybar
 
-# Pulse Audio controls
-# Uses wpctl (WirePlumber Control) for PipeWire systems (default on modern Ubuntu)
-# bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-# bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-# bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-
-bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-# bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
-
 # Volume keys - now call the OSD script
-bindsym XF86AudioRaiseVolume exec ~/scripts/sway_volume_osd.sh up
-bindsym XF86AudioLowerVolume exec ~/scripts/sway_volume_osd.sh down
-bindsym XF86AudioMute exec ~/scripts/sway_volume_osd.sh mute
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/sway_volume_osd.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/sway/scripts/sway_volume_osd.sh down
+bindsym XF86AudioMute exec ~/.config/sway/scripts/sway_volume_osd.sh mute
+
+bindsym XF86AudioMicMute exec ~/.config/sway/scripts/sway_mic_toggle.sh
 
 # Brightness keys - now call the OSD script
-bindsym XF86MonBrightnessUp exec ~/scripts/sway_brightness_osd.sh up
-bindsym XF86MonBrightnessDown exec ~/scripts/sway_brightness_osd.sh down
+bindsym XF86MonBrightnessUp exec ~/.config/sway/scripts/sway_brightness_osd.sh up
+bindsym XF86MonBrightnessDown exec ~/.config/sway/scripts/sway_brightness_osd.sh down
 
 
 # --- Input Configuration ---
@@ -242,7 +228,7 @@ input type:touchpad {
 bindsym $mod+d exec wofi --show drun
 
 # toggle waybar style
-bindsym $mod+Shift+S exec ~/scripts/waybar_toggle.sh
+bindsym $mod+Shift+S exec ~/.config/waybar/scripts/waybar_toggle.sh
 
 default_border none 
 

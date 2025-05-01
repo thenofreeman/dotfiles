@@ -5,7 +5,7 @@
 
   "modules-left": ["sway/workspaces", "custom/scratch", "sway/mode", "sway/window"],
   "modules-center": [],
-  "modules-right": ["temperature", "backlight", "pulseaudio", "network", "battery", "clock", "tray"],
+  "modules-right": ["temperature", "backlight", "pulseaudio", "pulseaudio#mic", "network", "battery", "clock", "tray"],
 
   "sway/workspaces": {
     "disable-scroll": true,
@@ -49,7 +49,7 @@
     "format": "{icon}   {capacity}%",
     "format-good": "{icon}   {capacity}%", 
     "format-full": "   {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": ["<span color='#ffaaaa'><span>", "", "", "", ""],
     "interval": 30
   },
 
@@ -85,5 +85,15 @@
     },
 
     "on-click": "blueman-manager"
+  },
+
+  "pulseaudio#mic": {
+      "format": "{format_source}",
+      "format-source": "<span color='#ffaaaa'>\uf130</span>",
+      "format-source-muted": "\uf131",
+      "tooltip": true,
+      "tooltip-format": "{source_desc} | Vol: {source_volume}% [{source_muted}]",
+      "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+      "scroll-step": 5
   }
 }
