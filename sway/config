@@ -234,4 +234,13 @@ default_border none
 
 exec mako
 
+# capture all screens to clipboard    
+bindsym $mod+P exec grim - | wl-copy    
+    
+# capture the specified screen area to clipboard    
+bindsym $mod+Shift+P exec grim -g "$(slurp)" - | wl-copy    
+    
+# capture the focused monitor to clipboard    
+bindsym $mod+Control+P exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | wl-copy
+
 include /etc/sway/config.d/*

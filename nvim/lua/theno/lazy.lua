@@ -851,7 +851,7 @@ require("lazy").setup({
 			-- auto_suggestions_provider = "copilot",
 			gemini = {
 				endpoint = "https://api.openai.com/v1",
-				model = "gemini-2.5-pro-exp-03-2",
+				model = "gemini-2.5-flash-latest",
 				timeout = 30000,
 				temperature = 0,
 				max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)

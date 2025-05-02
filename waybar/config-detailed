@@ -39,17 +39,17 @@
   "battery": {
     "bat": "BAT1",
     "states": {
-      "full": 99,
-      "good": 98,
-      "normal": 98,
-      "warning": 20,
-      "critical": 20
+      "full": 98,
+      "good": 80,
+      "normal": 20,
+      "warning": 5 
     },
 
     "format": "{icon}   {capacity}%",
-    "format-good": "{icon}   {capacity}%", 
-    "format-full": "   {capacity}%",
-    "format-icons": ["<span color='#ffaaaa'><span>", "", "", "", ""],
+    "format-charging": "{icon}󱐋   {capacity}%",
+    "format-warning": "<span color='#ffaaaa'>{icon}</span>   {capacity}%",
+    "format-critical": "<span color='#ffaaaa'>{icon}!</span>   {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "interval": 30
   },
 
