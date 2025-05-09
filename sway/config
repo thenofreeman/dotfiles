@@ -4,6 +4,7 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -18,16 +19,7 @@ set $term ghostty
 
 include /etc/sway/config-vars.d/*
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.config/background fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -41,6 +33,10 @@ output * bg ~/.config/background fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+
+output HDMI-A-1 resolution 2560x1440 pos 0 0
+output eDP-1 resolution 1920x1200 pos 320 1440
 
 ### Input configuration
 #
@@ -121,7 +117,12 @@ output * bg ~/.config/background fill
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+
+    bindsym $mod+Ctrl+Shift+$up move container to output HDMI-A-1
+    bindsym $mod+Ctrl+Shift+$down move container to output eDP-1
+
+    bindsym $mod+alt+$up move workspace to output HDMI-A-1
+    bindsym $mod+alt+$down move workspace to output eDP-1
 #
 # Layout stuff:
 #
