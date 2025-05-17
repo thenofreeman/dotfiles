@@ -25,18 +25,25 @@ output * bg ~/.config/background fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
+
+bindsym $mod+Shift+S exec "systemctl suspend"
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+set $out-builtin eDP-1
+set $out-monitor HDMI-A-1
 
-output HDMI-A-1 resolution 2560x1440 pos 0 0
-output eDP-1 resolution 1920x1200 pos 320 1440
+output $out-monitor resolution 2560x1440 pos 0 0
+output $out-builtin resolution 1920x1200 pos 320 1440
+
+bindswitch lid:on output $out-builtin disable
+bindswitch lid:off output $out-builtin enable
 
 ### Input configuration
 #
@@ -94,6 +101,29 @@ output eDP-1 resolution 1920x1200 pos 320 1440
 #
 # Workspaces:
 #
+    # workspace 1 output $out-primary
+    # workspace 2 output $out-primary
+    # workspace 3 output $out-primary
+    # workspace 4 output $out-primary
+    # workspace 5 output $out-primary
+    # workspace 6 output $out-primary
+    # workspace 7 output $out-primary
+    # workspace 8 output $out-primary
+    # workspace 9 output $out-primary
+    #
+    # workspace 0 output $out-secondary
+
+    workspace 1 output $out-monitor
+    workspace 2 output $out-monitor
+    workspace 3 output $out-monitor
+    workspace 4 output $out-monitor
+    workspace 5 output $out-monitor
+    workspace 6 output $out-monitor
+    workspace 7 output $out-monitor
+    workspace 8 output $out-monitor
+    workspace 9 output $out-monitor
+    workspace 0 output $out-monitor
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -105,6 +135,7 @@ output eDP-1 resolution 1920x1200 pos 320 1440
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -118,11 +149,11 @@ output eDP-1 resolution 1920x1200 pos 320 1440
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
 
-    bindsym $mod+Ctrl+Shift+$up move container to output HDMI-A-1
-    bindsym $mod+Ctrl+Shift+$down move container to output eDP-1
+    # bindsym $mod+Ctrl+Shift+$up move container to output $out-secondary
+    # bindsym $mod+Ctrl+Shift+$down move container to output $out-primary
 
-    bindsym $mod+alt+$up move workspace to output HDMI-A-1
-    bindsym $mod+alt+$down move workspace to output eDP-1
+    # bindsym $mod+alt+$up move workspace to output HDMI-A-1
+    # bindsym $mod+alt+$down move workspace to output eDP-1
 #
 # Layout stuff:
 #
@@ -229,7 +260,7 @@ input type:touchpad {
 bindsym $mod+d exec wofi --show drun
 
 # toggle waybar style
-bindsym $mod+Shift+S exec ~/.config/waybar/scripts/waybar_toggle.sh
+bindsym $mod+Shift+W exec ~/.config/waybar/scripts/waybar_toggle.sh
 
 default_border none 
 
