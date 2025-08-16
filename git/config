@@ -5,7 +5,7 @@
 	excludesfile = $HOME/.config/git/gitignore
 	editor = nvim
 [init]
-	defaultbranch = main
+	defaultbranch = master
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
